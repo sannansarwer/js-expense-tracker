@@ -1,7 +1,7 @@
 # Expense Tracker - Trackit
 Trackit is a web-based expense tracker that helps users manage their income and expenses, generate reports, and get insights into their spending habits. Built with HTML, CSS (Bootstrap), and JavaScript, it offers a clean and responsive interface for personal finance management.
 
-### Demo # 
+### Demo : 
 
 ## 🌟 Features
 ### Dashboard Overview
@@ -25,3 +25,18 @@ Trackit is a web-based expense tracker that helps users manage their income and 
 ### Responsive Design
 - Works on desktops, tablets, and mobile devices.
 - Uses Bootstrap for a consistent and modern UI.
+
+## 💻 Usage
+### Navigate
+Use the navbar to switch between Home, Expenses, and Reports.
+### Add Income
+Click + Add Income, fill out the form, and click Save Income.
+Total income and balance update automatically.
+### Add Expense
+Click + Add New Expense, fill out the details, and submit.
+Recent expenses and total expenses are updated immediately.
+### Mark Expenses
+In the Expenses table, check/uncheck expenses to mark them as completed/pending.
+Use the Select All checkbox for batch updates.
+### View Reports
+Visualize expenses by category, monthly trends, top expenses, and budget comparison.
