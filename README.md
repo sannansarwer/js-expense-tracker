@@ -1,7 +1,7 @@
 # Expense Tracker - Trackit
 Trackit is a web-based expense tracker that helps users manage their income and expenses, generate reports, and get insights into their spending habits. Built with HTML, CSS (Bootstrap), and JavaScript, it offers a clean and responsive interface for personal finance management.
 
-### 🚀 Live Demo :  
+### 🚀 Live Demo :  https://sannansarwer.github.io/js-expense-tracker/
 
 ## 🌟 Features
 #### Dashboard Overview
