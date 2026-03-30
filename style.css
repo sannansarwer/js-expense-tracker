@@ -1,0 +1,25 @@
+ /* Hide sections initially to prevent flash of content */
+    .page-section {
+        display: none;
+    }
+/* Navbar link transition */
+.navbar .nav-link {
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Zoom effect when active */
+.navbar .nav-link.active-link {
+    transform: scale(1.1);
+    font-weight: bold;
+}
+
+/* Responsive tweaks */
+@media (max-width: 576px) {
+    .page-section { padding: 1rem; }
+    .card-header i { font-size: 1rem; }
+    .card-body { font-size: 0.9rem; }
+    .btn { font-size: 0.85rem; padding: 0.3rem 0.5rem; }
+    table { font-size: 0.85rem; }
+    .card-body.d-flex { flex-direction: column; align-items: stretch; }
+    .navbar .collapse .d-flex { flex-direction: column !important; align-items: start; }
+}

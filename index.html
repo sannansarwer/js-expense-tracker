@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <!-- Bootstrap Icon -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"> 
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+<div class="container-fluid">
+    <!-- Logo -->
+    <a class="navbar-brand text-warning fw-bold" id="logo" href="#"><i class="bi bi-wallet"></i> Trackit</a>
+
+        <!-- Links  -->
+    <div class="d-flex">
+      <a class="nav-link text-white px-3" id="navHome" href="#"><i class="bi bi-house-door-fill me-1"></i>Home</a>
+      <a class="nav-link text-white px-3" id="navExpenses" href="#"><i class="bi bi-wallet2 me-1"></i>Expenses</a>
+      <a class="nav-link text-white px-3" id="navReports" href="#"><i class="bi bi-bar-chart-line-fill me-1"></i>Reports</a>
+    </div>
+</div>
+</nav>
+
+<!-- Home Content -->
+<div id="homePage" class="page-section container my-5">
+
+    <!-- Total Track -->
+    <div class="row mb-4">
+      <div class="col-md-4 mb-3">
+        <div class="card border-success h-100 text-center">
+          <div class="card-header bg-transparent border-success text-success fw-bold"><i class="bi bi-wallet2 me-2"></i>Reserves</div>
+          <div class="card-body text-success">
+            <h5 class="card-title" id="homeBalance">$ 50,000</h5>
+            <p class="card-text">Reserves of your funds.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <div class="card border-primary h-100 text-center">
+          <div class="card-header bg-transparent border-primary text-primary fw-bold"> <i class="bi bi-cash-stack me-2"></i>Income</div>
+          <div class="card-body text-primary">
+            <h5 class="card-title" id="totalIncome">$ 30,000</h5>
+            <p class="card-text">Total income received this month.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <div class="card border-success h-100 text-center">
+          <div class="card-header bg-transparent border-danger text-danger fw-bold"><i class="bi bi-credit-card-2-back me-2"></i>Total Expense</div>
+          <div class="card-body text-danger">
+            <h5 class="card-title" id="totalExpenses">$ 20,000</h5>
+            <p class="card-text">Overview of all your expenses.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recent History -->
+    <div class="row mb-4 justify-content-center">
+      <div class="col-md-6 mb-3">
+        <div class="card border-success h-100 text-center">
+          <div class="card-header bg-transparent border-success"><i class="bi bi-list-task me-2"></i>Income History</div>
+          <div class="card-body text-success">
+
+            <table class="table">
+                <thead class="table-primary">
+                    <tr>
+                        <th scope="col">Title</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Ammount</th>
+                    </tr>
+                </thead>
+                <tbody id="incomeTableBody">
+                    <tr>
+                        <td>Breakfast</td>
+                        <td>Food</td>
+                        <td>$20</td>
+                    </tr>
+                    <tr>
+                        <td>Shoes</td>
+                        <td>Clothes</td>
+                        <td>$50</td>
+                    </tr>
+                </tbody>
+
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 mb-3">
+        <div class="card border-success h-100 text-center">
+          <div class="card-header bg-transparent border-success"> <i class="bi bi-receipt me-2"></i>Recent Expenses</div>
+          <div class="card-body text-success">
+            
+            <table class="table">
+                <thead class="table-danger">
+                    <tr>
+                        <th scope="col">Subject</th>
+                        <th scope="col">Type</th>
+                        <th scope="col">Ammount</th>
+                    </tr>
+                </thead>
+                <tbody id="recentExpenseTableBody">
+                    <tr>
+                        <td>Breakfast</td>
+                        <td>Food</td>
+                        <td>$20</td>
+                    </tr>
+                    <tr>
+                        <td>Shoes</td>
+                        <td>Clothes</td>
+                        <td>$50</td>
+                    </tr>
+                </tbody>
+
+            </table>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Access -->
+    <div class="row justify-content-center">
+      <div class="col mb-3">
+        <div class="card border-success h-100">
+          <div class="card-header bg-transparent border-success"><i class="bi bi-plus-circle"></i> Quick Access</div>
+          <div class="card-body">
+            <button type="button" id="addIncome" class="btn btn-outline-primary m-1" data-bs-toggle="modal" data-bs-target="#exampleModal">+ Add Income</button>
+            <button class="btn btn-outline-secondary addNewExpenseBtn">+ Add New Expense</button>
+            <button type="button" id="" class="btn btn-outline-success m-1">+ Create Report</button>
+            <button type="button" id="addTrips" class="btn btn-outline-danger">+ Create Trip</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+</div>
+
+<!-- Income Modal -->
+ <!-- Add Income Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add Income</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="modal-body">
+        <form id="incomeForm">
+          
+          <div class="mb-3">
+            <label  class="form-label">Title</label>
+            <input type="text" id="incomeTitle" class="form-control" placeholder="e.g. Salary">
+          </div>
+
+          <div class="mb-3">
+            <label for="incomeAmount" class="form-label">Amount</label>
+            <input type="number" id="incomeAmount" class="form-control" placeholder="Enter amount">
+          </div>
+
+          <div class="mb-3">
+            <label for="incomeDate" class="form-label">Date</label>
+            <input type="date" id="incomeDate" class="form-control">
+          </div>
+
+        </form>
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" id="saveIncome" class="btn btn-primary">Save Income</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Create New Expense -->
+<div id="newExpPage" class="page-section container my-5">
+  <div class="card shadow-sm">
+    <div class="card-header bg-dark text-white text-center">
+      Add New Expense
+    </div>
+
+    <div class="card-body">
+      <form id="expenseForm">
+
+        <!-- Amount -->
+        <div class="mb-3">
+          <label class="form-label">Amount</label>
+          <input type="number" id="expenseAmount" class="form-control" placeholder="Enter amount">
+        </div>
+
+        <!-- Category -->
+        <div class="mb-3">
+          <label class="form-label">Category</label>
+          <select class="form-select" id="expenseCategory">
+            <option selected disabled>Select category</option>
+            <option>Food</option>
+            <option>Transport</option>
+            <option>Shopping</option>
+            <option>Bills</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <!-- Date -->
+        <div class="mb-3">
+          <label class="form-label">Date</label>
+          <input type="date" id="expenseDate" class="form-control">
+        </div>
+
+        <!-- Description -->
+        <div class="mb-3">
+          <label class="form-label">Description</label>
+          <textarea class="form-control" id="expenseDescription" rows="3" placeholder="Enter details"></textarea>
+        </div>
+
+        <!-- Buttons -->
+        <div class="d-flex justify-content-end">
+          <button type="reset"  id="addExpenseBtn" class="btn btn-outline-secondary me-2">Reset</button>
+          <button type="submit" id="resetExpenseBtn" class="btn btn-success">Add Expense</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
+
+<!--Expense Section-->
+<div id="expensesPage" class="page-section container my-5">
+
+  <div class="btn-group gap-2 mb-4">
+    <button class="btn btn-secondary addNewExpenseBtn">+ Add New Expense</button>
+
+    <div class="dropdown">
+      <button class="btn btn-info dropdown-toggle" id="addExpenseToggleBtn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Sort By
+      </button>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#" id="sortByDate">Date</a></li>
+        <li><a class="dropdown-item" href="#" id="sortAZ">Z to A</a></li>
+        <li><a class="dropdown-item" href="#" id="sortAmountLow">Ammount : Low to High</a></li>
+        <li><a class="dropdown-item" href="#" id="sortAmountHigh">Ammount : High to Low</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="mb-4">
+    <table class="table table-bordered border-success">
+      <thead>
+        <tr>
+          <th><input type="checkbox" id="selectAllExpenses"></th> <!-- Select All -->
+          <th><i class="bi bi-file-text-fill me-1"></i> Subject</th>
+          <th><i class="bi bi-tags-fill me-1"></i> Category</th>
+          <th><i class="bi bi-currency-dollar me-1"></i> Amount</th>
+          <th><i class="bi bi-bar-chart-fill me-1"></i> Report</th>
+          <th><i class="bi bi-shield-check me-1"></i> Status</th>
+        </tr>
+      </thead>
+
+      <tbody id="expenseTableBody">
+
+        <!-- Row 1 -->
+        <tr data-bs-toggle="collapse" data-bs-target="#row1">
+          <td><input type="checkbox" class="row-checkbox" data-index="${index}" ${isChecked} onclick="event.stopPropagation()"></td>
+          <td>Food Catering</td>
+          <td>McFood</td>
+          <td>€250.00</td>
+          <td>November_2022</td>
+          <td><span class="status-badge not-submitted">Not Submitted</span></td>
+        </tr>
+        <tr class="collapse" id="row1">
+          <td></td>
+          <td colspan="5">🍔 Catering for office event.</td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>  
+  
+</div>
+
+<!-- Reports Section -->
+<div id="reportsPage" class="page-section container my-5">
+
+    <!-- 1. Summary Cards -->
+    <div class="row mb-4">
+      <div class="col-md-3 mb-3">
+        <div class="card text-white bg-primary">
+          <div class="card-body" id="reportIncome">
+            <h5 class="card-title"><i class="bi bi-cash-stack me-2"></i> Total Income</h5>
+            <p class="card-text">$50,000</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 mb-3">
+        <div class="card text-white bg-danger">
+          <div class="card-body" id="reportExpense">
+            <h5 class="card-title"><i class="bi bi-credit-card-2-back me-2"></i> Total Expenses</h5>
+            <p class="card-text">$50,000</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 mb-3">
+        <div class="card text-white bg-success">
+          <div class="card-body" id="reportBalance">
+            <h5 class="card-title"><i class="bi bi-wallet2 me-2"></i>Balance</h5>
+            <p class="card-text">$50,000</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 mb-3">
+        <div class="card text-white bg-warning">
+          <div class="card-body" id="monthlyExpense">
+            <h5 class="card-title"><i class="bi bi-bar-chart-line-fill me-2"></i> Month Expense</h5>
+            <p class="card-text">$50,000</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. Expense by Category -->
+    <div class="row mb-4">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header">Expense by Category</div>
+          <div class="card-body" id="categoryContainer">
+            <p>Food <span class="float-end">40%</span></p>
+            <div class="progress mb-2">
+              <div class="progress-bar bg-success" role="progressbar" style="width: 40%"></div>
+            </div>
+            <p>Transport <span class="float-end">20%</span></p>
+            <div class="progress mb-2">
+              <div class="progress-bar bg-info" role="progressbar" style="width: 20%"></div>
+            </div>
+            <p>Bills <span class="float-end">15%</span></p>
+            <div class="progress mb-2">
+              <div class="progress-bar bg-warning" role="progressbar" style="width: 15%"></div>
+            </div>
+            <p>Shopping <span class="float-end">15%</span></p>
+            <div class="progress mb-2">
+              <div class="progress-bar bg-danger" role="progressbar" style="width: 15%"></div>
+            </div>
+            <p>Others <span class="float-end">10%</span></p>
+            <div class="progress">
+              <div class="progress-bar bg-secondary" role="progressbar" style="width: 10%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Monthly Trend (Simplified) -->
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header">Monthly Spending Trend</div>
+          <div class="card-body" id="monthlyTrendContainer">
+            <p>Week 1 <span class="float-end">$5,000</span></p>
+            <div class="progress mb-2">
+              <div class="progress-bar bg-primary" style="width: 50%"></div>
+            </div>
+            <p>Week 2 <span class="float-end">$8,000</span></p>
+            <div class="progress mb-2">
+              <div class="progress-bar bg-primary" style="width: 80%"></div>
+            </div>
+            <p>Week 3 <span class="float-end">$10,000</span></p>
+            <div class="progress mb-2">
+              <div class="progress-bar bg-primary" style="width: 100%"></div>
+            </div>
+            <p>Week 4 <span class="float-end">$12,000</span></p>
+            <div class="progress">
+              <div class="progress-bar bg-primary" style="width: 120%"></div>
+            </div>
+            <p>Week 5 <span class="float-end">$10,000</span></p>
+            <div class="progress">
+              <div class="progress-bar bg-primary" style="width: 120%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. Top Expenses -->
+    <div class="row mb-4">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header">Top Expenses</div>
+          <div class="card-body" id="topExpensesBody">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Item</th>
+                  <th>Amount</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Rent</td>
+                  <td>₹20,000</td>
+                </tr>
+                <tr>
+                  <td>Travel</td>
+                  <td>₹10,000</td>
+                </tr>
+                <tr>
+                  <td>Shopping</td>
+                  <td>₹5,000</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. Recent Activity Summary -->
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header">Recent Activity</div>
+          <div class="card-body" id="recentActivityList">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Groceries $2,000</li>
+              <li class="list-group-item">Bus Ticket $500</li>
+              <li class="list-group-item">Electricity Bill $3,000</li>
+              <li class="list-group-item">Movie $800</li>
+              <li class="list-group-item">Dining $1,500</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6. Budget vs Actual -->
+    <div class="row mb-4">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">Budget vs Actual</div>
+          <div class="card-body">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>Category</th>
+                  <th>Budget</th>
+                  <th>Spent</th>
+                </tr>
+              </thead>
+              <tbody id="budgetTableBody">
+                <tr>
+                  <td>Food</td>
+                  <td>$5,000</td>
+                  <td>$6,500 ❌</td>
+                </tr>
+                <tr>
+                  <td>Transport</td>
+                  <td>$3,000</td>
+                  <td>$2,500 ✅</td>
+                </tr>
+                <tr>
+                  <td>Shopping</td>
+                  <td>$4,000</td>
+                  <td>$3,500 ✅</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 7. Insights / Smart Messages -->
+    <div class="row mb-4">
+      <div class="col-md-12">
+        <div class="card bg-light">
+          <div class="card-body">
+            <ul id="insightsList">
+              <li>You spent 20% more than last month</li>
+              <li>Food is your highest expense</li>
+              <li>You saved ₹3,000 this month</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+</div>
+
+<!-- Custom JS -->
+<script src="js/script.js"></script>  
+<!-- Bootstrap JS -->
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script> 
+
+</body>
+</html>
