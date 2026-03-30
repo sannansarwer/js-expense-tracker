@@ -1,7 +1,7 @@
 # Expense Tracker - Trackit
 Trackit is a web-based expense tracker that helps users manage their income and expenses, generate reports, and get insights into their spending habits. Built with HTML, CSS (Bootstrap), and JavaScript, it offers a clean and responsive interface for personal finance management.
 
-### Demo : 
+### 🚀 Live Demo :  
 
 ## 🌟 Features
 ### Dashboard Overview
@@ -28,15 +28,42 @@ Trackit is a web-based expense tracker that helps users manage their income and 
 
 ## 💻 Usage
 ### Navigate
-Use the navbar to switch between Home, Expenses, and Reports.
+- Use the navbar to switch between Home, Expenses, and Reports.
 ### Add Income
-Click + Add Income, fill out the form, and click Save Income.
-Total income and balance update automatically.
+- Click + Add Income, fill out the form, and click Save Income.
+- Total income and balance update automatically.
 ### Add Expense
-Click + Add New Expense, fill out the details, and submit.
-Recent expenses and total expenses are updated immediately.
+- Click + Add New Expense, fill out the details, and submit.
+- Recent expenses and total expenses are updated immediately.
 ### Mark Expenses
-In the Expenses table, check/uncheck expenses to mark them as completed/pending.
-Use the Select All checkbox for batch updates.
+- In the Expenses table, check/uncheck expenses to mark them as completed/pending.
+- Use the Select All checkbox for batch updates.
 ### View Reports
-Visualize expenses by category, monthly trends, top expenses, and budget comparison.
+- Visualize expenses by category, monthly trends, top expenses, and budget comparison.
+
+## 🎨 Technologies Used
+- HTML5 & CSS3
+- JavaScript (ES6)
+- Bootstrap 5 (Responsive design, cards, modals, tables)
+- Bootstrap Icons (For intuitive icons)
+- localStorage (Persistent storage for data)
+
+## 📁 Project Structure
+trackit-expense-tracker/
+
+├─ index.html           # Main HTML page
+
+├─ css/
+   
+    └─ style.css        # Custom styles
+├─ js/
+
+    └─ script.js        # JavaScript logic
+    
+├─ README.md            # This file
+
+└─ assets/              # (Optional) images or icons
+
+## 📄 License
+
+This project is licensed under the MIT License. See the LICENSE file for details.
